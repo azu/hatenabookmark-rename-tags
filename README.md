@@ -48,15 +48,14 @@ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-ta
       # ignore cache data
       $ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-tags --reload --user test --before "before" --after "after"
 
-`hantenabookmark-replace-tags` use cache data by default.
-Your hatena bookmarks cache data is stored into `.cache/search.data`.
+`hantenabookmark-replace-tags` use cache data by default. The cache data is stored into `.cache/search.data`.
 
 If your want to reload your bookmarks, use `--reload` flags.
 
 **Limitation**: This script support only *public* bookmarks.
 
 It depended on [search.data](https://github.com/azu/hatebu-mydata-parser/blob/master/doc/search.data-format.md).
-Hatena bookmark API does not provide listing API of bookmarks.
+Because, Hatena bookmark API does not provide listing API of bookmarks.
 
 ## Changelog
 
