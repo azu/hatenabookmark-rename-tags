@@ -28,5 +28,6 @@ export const fetchHatenaBookmarks = async (userName: string, options: FetchHaten
         fs.mkdirSync(CACHE_DIR);
     }
     fs.writeFileSync(OUTPUT_PATH, text, "utf-8");
+    console.info(`Store cache data to ${OUTPUT_PATH}`);
     return parseMyData(text);
 };
