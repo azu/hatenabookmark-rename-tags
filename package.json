@@ -1,6 +1,6 @@
 {
   "name": "hantenabookmark-replace-tags",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "A CLI that replace all hatena bookmark tags.",
   "homepage": "https://github.com/azu/hantenabookmark-replace-tags",
   "bugs": {
