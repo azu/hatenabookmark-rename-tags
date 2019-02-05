@@ -14,6 +14,7 @@ export const fetchHatenaBookmarks = async (userName: string, options: FetchHaten
     const searchDataURL = `http://b.hatena.ne.jp/${encodeURIComponent(userName)}/search.data`;
     if (!options.reload && fs.existsSync(OUTPUT_PATH)) {
         const searchData = fs.readFileSync(OUTPUT_PATH, "utf-8");
+        console.info(`Use cache data: ${OUTPUT_PATH}`);
         const parsed = parseMyData(searchData);
         return parsed as ParsedResults;
     }
