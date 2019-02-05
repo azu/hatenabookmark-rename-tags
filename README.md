@@ -50,7 +50,7 @@ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-ta
 
 `hantenabookmark-replace-tags` use cache data by default. The cache data is stored into `.cache/search.data`.
 
-If your want to reload your bookmarks, use `--reload` flags.
+If your want to reload your cached bookmarks, use `--reload` flags.
 
 **Limitation**: This script support only *public* bookmarks.
 
