@@ -2,19 +2,56 @@
 
 A CLI that replace all hatena bookmark tags.
 
-## Install
+## How to use?
 
-Install with [npm](https://www.npmjs.com/):
+You need to hatena OAuth access token.
+This repository includes helper app for getting access token.
 
-    npm install hantenabookmark-replace-tags
+### 1. Get OAuth Token
 
-## Usage
+Run electron app for getting your hatena oauth token.
 
+```
+git clone https://github.com/azu/hantenabookmark-replace-tags
+cd hantenabookmark-replace-tags
+yarn install
+yarn run get-token
+```
 
-1. Get OAuth Token
-    - `yarn run get-token`
-2. Run scripts
-    - `yarn run .....`
+**Steps**: get your OAuth tokens
+
+1. Login and OAuth hatena account that want to rename tags
+2. Copy the results that are access token and access token secret
+
+##" 2. Run rename script
+
+Install `hantenabookmark-replace-tags` to globally and pass access token as environment variables.
+
+```
+npm install -g hantenabookmark-replace-tags
+HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-tags [option]
+```
+
+**CLI Usage**:
+
+    Usage
+      $ hantenabookmark-replace-tags --user <user> --before <tag> --after <tag>
+ 
+    Options
+      --user Hatena User Name
+      --before a Tag name that is old name
+      --after  a Tag name that is new name
+      --reload prune cache data and fetch your bookmarks if this flag is specified
+ 
+    Examples
+      $ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-tags --user test --before "js" --after "JavaScript"
+      # ignore cache data
+      $ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-tags --reload --user test --before "before" --after "after"
+
+`hantenabookmark-replace-tags` use cache data by default.
+Your hatena bookmarks cache data is stored into `.cache/search.data`.
+
+If your want to reload your bookmarks, use `--reload` flags.
 
 ## Changelog
 

@@ -1,8 +1,8 @@
 import { Client } from "hatena-bookmark-api";
 import { ParsedResult } from "./parse-mydata";
 
-const consumerKey = process.env.HATENA_CONSUMER_KEY;
-const consumerSecret = process.env.HATENA_CONSUMER_SECRET;
+const consumerKey = process.env.HATENA_CONSUMER_KEY || "KP3igGP/IxuINQ==";
+const consumerSecret = process.env.HATENA_CONSUMER_SECRET || "3DGtEHE/YEEZdmWGngc5zqAPV5w=";
 const accessToken = process.env.HATENA_ACCESS_TOKEN;
 const accessTokenSecret = process.env.HATENA_ACCESS_SECRET;
 
@@ -16,10 +16,8 @@ export class HatebuClient {
         if (accessTokenSecret === undefined) throw new Error("Not found HATENA_ACCESS_SECRET");
 
         this.client = new Client({
-            // token credentials
             accessToken,
             accessTokenSecret,
-            // client credentials
             consumerKey,
             consumerSecret
         });
@@ -31,10 +29,11 @@ export class HatebuClient {
         });
         console.info(`[${newTags.join("][")}]${bookmark.comment}
 ${bookmark.url}`);
+        // Workaround:https://twitter.com/azu_re/status/1092580264692183040
+        // Hatena bookamrk does not work `tags{ query correcty
         return this.client.postBookmark({
             url: bookmark.url,
-            tags: newTags,
-            comment: bookmark.comment
+            comment: `[${newTags.join("][")}]${bookmark.comment}`
         });
     }
 }

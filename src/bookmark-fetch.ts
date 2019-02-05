@@ -4,9 +4,15 @@ import { parseMyData, ParsedResults } from "./parse-mydata";
 
 require("cross-fetch/polyfill");
 const OUTPUT_PATH = path.join(__dirname, "../.cache/search.data");
-export const fetchHatenaBookmarks = async (userName: string): Promise<ParsedResults> => {
+
+
+export interface FetchHatenaBookmarksOptions {
+    reload: boolean;
+}
+
+export const fetchHatenaBookmarks = async (userName: string, options: FetchHatenaBookmarksOptions): Promise<ParsedResults> => {
     const searchDataURL = `http://b.hatena.ne.jp/${encodeURIComponent(userName)}/search.data`;
-    if (fs.existsSync(OUTPUT_PATH)) {
+    if (!options.reload && fs.existsSync(OUTPUT_PATH)) {
         const searchData = fs.readFileSync(OUTPUT_PATH, "utf-8");
         const parsed = parseMyData(searchData);
         return parsed as ParsedResults;

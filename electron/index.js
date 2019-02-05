@@ -20,10 +20,8 @@ hatena.startRequest().then(function(result) {
     var accessTokenSecret = result.accessTokenSecret;
     dialog.showErrorBox("hantenabookmark-replace-tags",
         `
-# Copy these tokens and past to .env file        
+# Copy these tokens    
 
-HATENA_CONSUMER_KEY="${CONSUMER.key}"
-HATENA_CONSUMER_SECRET="${CONSUMER.secret}"
 HATENA_ACCESS_TOKEN="${accessToken}"
 HATENA_ACCESS_SECRET="${accessTokenSecret}"
         `);

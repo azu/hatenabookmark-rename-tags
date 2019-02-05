@@ -1,40 +1,52 @@
-require("dotenv").config();
-const pAll = require("p-all");
-import { fetchHatenaBookmarks } from "./bookmark-fetch";
+import meow from "meow";
+import { renameTag } from "./index";
 
-import { HatebuClient } from "./hatebu-client";
-
-const waitMs = (ms: number): Promise<void> => {
-    return new Promise(resolve => {
-        setTimeout(() => {
-            resolve();
-        }, ms);
+export function run() {
+    const cli = meow(`
+    Usage
+      $ hantenabookmark-replace-tags --user <user> --before <tag> --after <tag>
+ 
+    Options
+      --user Hatena User Name
+      --before a Tag name that is old name
+      --after  a Tag name that is new name
+      --reload prune cache data and fetch your bookmarks if this flag is specified
+ 
+    Examples
+      $ hantenabookmark-replace-tags --user test --before "検索" --after "Search"
+`, {
+        flags: {
+            user: {
+                type: "string"
+            },
+            before: {
+                type: "string"
+            },
+            after: {
+                type: "string"
+            },
+            reaload: {
+                type: "boolean"
+            }
+        }
+        , autoVersion: true,
+        autoHelp: true
     });
-};
 
-// FIXME
-export function run(hatenaUserName: string, oldTag: string, newTag: string) {
-    return fetchHatenaBookmarks(hatenaUserName).then(results => {
-        const client = new HatebuClient();
-        const promises = results
-            .filter(result => {
-                return result.tags.includes(oldTag);
-            })
-            .map(result => {
-                return () => {
-                    return client
-                        .updateTag(result, oldTag, newTag)
-                        .catch(error => {
-                            console.error("Fail to update", result);
-                            console.error(error);
-                        })
-                        .then(() => {
-                            return waitMs(1000);
-                        });
-                };
-            });
-        return pAll(promises, { concurrency: 1 }).catch((error: Error) => {
-            console.error(error);
-        });
+    const hatenaUserName = cli.flags.user;
+    const oldTag = cli.flags.before;
+    const newTag = cli.flags.after;
+    // TODO: remove tag is not support
+    if (!hatenaUserName || !oldTag || !newTag) {
+        cli.showHelp();
+    }
+    const reload = cli.flags.reload !== undefined ? cli.flags.reload : false;
+    return renameTag(hatenaUserName, oldTag, newTag, {
+        reload
+    }).then(() => {
+        console.info("All Completed!");
+    }).catch((error: Error) => {
+        console.error(error);
     });
 }
+
