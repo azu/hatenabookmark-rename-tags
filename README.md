@@ -23,7 +23,7 @@ yarn run get-token
 1. Login and OAuth hatena account that want to rename tags
 2. Copy the results that are access token and access token secret
 
-##" 2. Run rename script
+### 2. Run rename script
 
 Install `hantenabookmark-replace-tags` to globally and pass access token as environment variables.
 
