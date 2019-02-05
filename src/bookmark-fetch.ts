@@ -3,14 +3,14 @@ import * as fs from "fs";
 import { parseMyData, ParsedResults } from "./parse-mydata";
 
 require("cross-fetch/polyfill");
-const OUTPUT_PATH = path.join(__dirname, "../.cache/search.data");
-
-
+const CACHE_DIR = path.join(__dirname, "../.cache");
+const OUTPUT_PATH = path.join(CACHE_DIR, "search.data");
 export interface FetchHatenaBookmarksOptions {
     reload: boolean;
 }
 
 export const fetchHatenaBookmarks = async (userName: string, options: FetchHatenaBookmarksOptions): Promise<ParsedResults> => {
+    fs.mkdirSync(CACHE_DIR);
     const searchDataURL = `http://b.hatena.ne.jp/${encodeURIComponent(userName)}/search.data`;
     if (!options.reload && fs.existsSync(OUTPUT_PATH)) {
         const searchData = fs.readFileSync(OUTPUT_PATH, "utf-8");
