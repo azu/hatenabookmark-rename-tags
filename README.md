@@ -53,6 +53,11 @@ Your hatena bookmarks cache data is stored into `.cache/search.data`.
 
 If your want to reload your bookmarks, use `--reload` flags.
 
+**Limitation**: This script support only *public* bookmarks.
+
+It depended on [search.data](https://github.com/azu/hatebu-mydata-parser/blob/master/doc/search.data-format.md).
+Hatena bookmark API does not provide listing API of bookmarks.
+
 ## Changelog
 
 See [Releases page](https://github.com/azu/hantenabookmark-replace-tags/releases).
