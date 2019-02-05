@@ -10,10 +10,10 @@ export class HatebuClient {
     private client: Client;
 
     constructor() {
-        if (consumerKey === undefined) throw new Error("Not found HATENA_CONSUMER_KEY");
-        if (consumerSecret === undefined) throw new Error("Not found HATENA_CONSUMER_SECRET");
-        if (accessToken === undefined) throw new Error("Not found HATENA_ACCESS_TOKEN");
-        if (accessTokenSecret === undefined) throw new Error("Not found HATENA_ACCESS_SECRET");
+        if (consumerKey === undefined) throw new Error("Not found process.env.HATENA_CONSUMER_KEY");
+        if (consumerSecret === undefined) throw new Error("Not found process.env.HATENA_CONSUMER_SECRET");
+        if (accessToken === undefined) throw new Error("Not found process.env.HATENA_ACCESS_TOKEN");
+        if (accessTokenSecret === undefined) throw new Error("Not found process.env.HATENA_ACCESS_SECRET");
 
         this.client = new Client({
             accessToken,
