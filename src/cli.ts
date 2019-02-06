@@ -4,7 +4,7 @@ import { renameTag } from "./index";
 export function run() {
     const cli = meow(`
     Usage
-      $ hantenabookmark-replace-tags --user <user> --before <tag> --after <tag>
+      $ hatenabookmark-rename-tags --user <user> --before <tag> --after <tag>
  
     Options
       --user Hatena User Name
@@ -13,7 +13,7 @@ export function run() {
       --reload prune cache data and fetch your bookmarks if this flag is specified
  
     Examples
-      $ hantenabookmark-replace-tags --user test --before "検索" --after "Search"
+      $ hatenabookmark-rename-tags --user test --before "検索" --after "Search"
 `, {
         flags: {
             user: {

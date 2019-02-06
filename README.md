@@ -1,4 +1,4 @@
-# hantenabookmark-replace-tags
+# hatenabookmark-rename-tags
 
 A CLI that replace all hatena bookmark tags.
 
@@ -12,8 +12,8 @@ This repository includes helper app for getting access token.
 Run electron app for getting your hatena oauth token.
 
 ```
-git clone https://github.com/azu/hantenabookmark-replace-tags
-cd hantenabookmark-replace-tags
+git clone https://github.com/azu/hatenabookmark-rename-tags
+cd hatenabookmark-rename-tags
 yarn install
 yarn run get-token
 ```
@@ -25,17 +25,17 @@ yarn run get-token
 
 ### 2. Run rename script
 
-Install `hantenabookmark-replace-tags` to globally and pass access token as environment variables.
+Install `hatenabookmark-rename-tags` to globally and pass access token as environment variables.
 
 ```
-npm install -g hantenabookmark-replace-tags
-HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-tags [option]
+npm install -g hatenabookmark-rename-tags
+HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hatenabookmark-rename-tags [option]
 ```
 
 **CLI Usage**:
 
     Usage
-      $ hantenabookmark-replace-tags --user <user> --before <tag> --after <tag>
+      $ hatenabookmark-rename-tags --user <user> --before <tag> --after <tag>
  
     Options
       --user Hatena User Name
@@ -44,11 +44,11 @@ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-ta
       --reload prune cache data and fetch your bookmarks if this flag is specified
  
     Examples
-      $ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-tags --user test --before "js" --after "JavaScript"
+      $ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hatenabookmark-rename-tags --user test --before "js" --after "JavaScript"
       # ignore cache data
-      $ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hantenabookmark-replace-tags --reload --user test --before "before" --after "after"
+      $ HATENA_ACCESS_TOKEN="___" HATENA_ACCESS_SECRET="____" hatenabookmark-rename-tags --reload --user test --before "before" --after "after"
 
-`hantenabookmark-replace-tags` use cache data by default. The cache data is stored into `.cache/search.data`.
+`hatenabookmark-rename-tags` use cache data by default. The cache data is stored into `.cache/search.data`.
 
 If your want to reload your cached bookmarks, use `--reload` flags.
 
@@ -59,7 +59,7 @@ Because, Hatena bookmark API does not provide listing API of bookmarks.
 
 ## Changelog
 
-See [Releases page](https://github.com/azu/hantenabookmark-replace-tags/releases).
+See [Releases page](https://github.com/azu/hatenabookmark-rename-tags/releases).
 
 ## Running tests
 
@@ -71,7 +71,7 @@ Install devDependencies and Run `npm test`:
 
 Pull requests and stars are always welcome.
 
-For bugs and feature requests, [please create an issue](https://github.com/azu/hantenabookmark-replace-tags/issues).
+For bugs and feature requests, [please create an issue](https://github.com/azu/hatenabookmark-rename-tags/issues).
 
 1. Fork it!
 2. Create your feature branch: `git checkout -b my-new-feature`

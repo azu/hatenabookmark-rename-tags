@@ -18,7 +18,7 @@ const hatena = new AuthenticationHatena({
 hatena.startRequest().then(function(result) {
     var accessToken = result.accessToken;
     var accessTokenSecret = result.accessTokenSecret;
-    dialog.showErrorBox("hantenabookmark-replace-tags",
+    dialog.showErrorBox("hatenabookmark-rename-tags",
         `
 # Copy these tokens    
 

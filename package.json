@@ -1,14 +1,14 @@
 {
-  "name": "hantenabookmark-replace-tags",
+  "name": "hatenabookmark-rename-tags",
   "version": "1.0.4",
   "description": "A CLI that replace all hatena bookmark tags.",
-  "homepage": "https://github.com/azu/hantenabookmark-replace-tags",
+  "homepage": "https://github.com/azu/hatenabookmark-rename-tags",
   "bugs": {
-    "url": "https://github.com/azu/hantenabookmark-replace-tags/issues"
+    "url": "https://github.com/azu/hatenabookmark-rename-tags/issues"
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/azu/hantenabookmark-replace-tags.git"
+    "url": "https://github.com/azu/hatenabookmark-rename-tags.git"
   },
   "license": "MIT",
   "author": "azu",
@@ -17,10 +17,10 @@
     "lib/",
     "src/"
   ],
-  "main": "lib/hantenabookmark-replace-tags.js",
-  "types": "lib/hantenabookmark-replace-tags.d.ts",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
   "bin": {
-    "hantenabookmark-replace-tags": "./bin/hantenabookmark-replace-tags.js"
+    "hatenabookmark-rename-tags": "./bin/cmd.js"
   },
   "directories": {
     "lib": "lib",
@@ -30,7 +30,7 @@
     "build": "cross-env NODE_ENV=production tsc -p .",
     "clean": "rimraf lib/",
     "get-token": "electron ./electron/index.js",
-    "hantenabookmark-replace-tags": "dotenv ./bin/hantenabookmark-replace-tags.js",
+    "hatenabookmark-rename-tags": "dotenv ./bin/cmd.js",
     "prettier": "prettier --write \"**/*.{js,jsx,ts,tsx,css}\"",
     "prepublish": "npm run --if-present build",
     "test": "mocha \"test/**/*.ts\"",
