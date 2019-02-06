@@ -19,12 +19,25 @@ yarn install
 yarn run get-token
 ```
 
-**Steps**: get your OAuth tokens
+**Steps**: get your OAuth access tokens
 
 1. Login and OAuth hatena account that want to rename tags
 2. Copy the results that are access token and access token secret
 
 ### 2. Run rename script
+
+----
+
+You should get the above access tokens before running rename script.
+If you have not these, please go to Step 1.
+
+**Requirement**:
+
+- `HATENA_ACCESS_TOKEN`
+- `HATENA_ACCESS_SECRET`
+
+----
+
 
 Install `hatenabookmark-rename-tags` to globally and pass access token as environment variables.
 
