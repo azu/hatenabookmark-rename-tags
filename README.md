@@ -1,4 +1,5 @@
-# hatenabookmark-rename-tags
+# hatenabookmark-rename-tags [![Build Status](https://travis-ci.org/azu/hatenabookmark-rename-tags.svg?branch=master)](https://travis-ci.org/azu/hatenabookmark-rename-tags)
+
 
 A CLI that replace all hatena bookmark tags.
 
