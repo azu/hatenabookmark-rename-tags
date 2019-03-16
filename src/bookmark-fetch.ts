@@ -18,7 +18,7 @@ export const fetchHatenaBookmarks = async (userName: string, options: FetchHaten
         const parsed = parseMyData(searchData);
         return parsed as ParsedResults;
     }
-    console.info(`Start Fetch: ${searchDataURL}`);
+    console.info(`Start fetching: ${searchDataURL}`);
     const response = await fetch(searchDataURL);
     if (!response.ok) {
         throw new Error(`Can not fetch: ${searchDataURL}`);
